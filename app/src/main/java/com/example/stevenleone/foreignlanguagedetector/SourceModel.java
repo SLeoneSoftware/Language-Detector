@@ -15,6 +15,10 @@ public class SourceModel {
 
     private double[][] charCount;
     private String mName;
+    private char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+            'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+            'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+            'y', 'z'};
     /**
      *SourceModel Constructor, creates matrix
      *@param modelName is used to print language training
@@ -24,10 +28,6 @@ public class SourceModel {
 
         mName = modelName;
         int[][] chrCount = new int[26][26];
-        char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-                'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-                'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
-                'y', 'z'};
         char previous = 0;
         boolean alphabetic = false;
         InputStream fis;
@@ -62,6 +62,7 @@ public class SourceModel {
                 alphabetic = false;
             }
         }
+
         double[][] probs = new double[26][26];
         for (int i = 0; i < 26; i++) {
             int total = 0;
@@ -78,8 +79,6 @@ public class SourceModel {
             }
         }
         charCount = probs;
-
-
     }
     /**
      *GetName method returns the name
@@ -128,10 +127,6 @@ public class SourceModel {
         int row = 0;
         int column = 0;
         int counter = 0;
-        char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-                'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-                'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
-                'y', 'z'};
         String[] testArray = new String[test.length()];
         for (int i = 0; i < test.length(); i++) {
             for (int j = 0; j < 26; j++) {

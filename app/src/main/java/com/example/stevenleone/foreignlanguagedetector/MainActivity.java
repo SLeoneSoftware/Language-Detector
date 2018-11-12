@@ -42,20 +42,18 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
 
-        //Begin Here
+
         btnTest.setOnClickListener(
         new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SourceModel language = getLikeliest(testStringInput.getText().toString());
-                String text = "These words are most likely " + language.getName();
-                testStringOutput.setText(text);
+                determineLanguage();
             }
         });
     }
 
     public void determineLanguage() {
-        SourceModel language = getLikeliest("This is an english String");
+        SourceModel language = getLikeliest(testStringInput.getText().toString());
         String text = "These words are most likely " + language.getName();
         testStringOutput.setText(text);
     }
